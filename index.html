@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* Green shade */
+            --text-color: #FFFFFF;
+            --btn-hover-color: #45a049;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--btn-hover-color);
+        }
+
+        #factText {
+            margin-top: 20px;
+            font-size: 24px;
+            width: 80%;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="factButton">Show a Cat Fact</button>
+        <p id="factText">Click the button to learn a fact about cats!</p>
+    </div>
+    <script>
+        const facts = [
+            "Cats have five toes on their front paws, but only four toes on their back paws.",
+            "Cats can rotate their ears 180 degrees.",
+            "The average cat can jump up to six times its body length in one leap.",
+            "The world's largest cat measured 48.5 inches long.",
+            "Cats have a specialized collarbone that allows them to always land on their feet when they fall.",
+            "A group of cats is called a clowder.",
+            "Cats have a third eyelid called a haw that helps protect their eyes.",
+            "The oldest recorded pet cat lived to be 38 years old.",
+            "Cats can make over 100 different sounds.",
+            "Cats sleep for 70% of their lives."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('factText').textContent = facts[randomIndex];
+        });
+    </script>
+</body>
+</html>
